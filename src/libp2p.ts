@@ -133,6 +133,7 @@ export class Libp2pNode extends EventEmitter<Libp2pEvents> implements Libp2p {
     this.components.setDialer(new DefaultDialer(this.components, init.connectionManager))
 
     // Create the Connection Manager
+    // @ts-expect-error
     this.connectionManager = this.components.setConnectionManager(new DefaultConnectionManager(init.connectionManager))
 
     // Create the Registrar

@@ -142,6 +142,7 @@ export interface ConnectionManagerEvents {
 /**
  * Responsible for managing known connections.
  */
+// @ts-expect-error
 export class DefaultConnectionManager extends EventEmitter<ConnectionManagerEvents> implements ConnectionManager, Startable, Initializable {
   private components = new Components()
   private readonly opts: Required<ConnectionManagerInit>
