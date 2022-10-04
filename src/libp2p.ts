@@ -21,7 +21,7 @@ import { DefaultRegistrar } from './registrar.js'
 import { IdentifyService } from './identify/index.js'
 import { FetchService } from './fetch/index.js'
 import { PingService } from './ping/index.js'
-import { NatManager } from './nat-manager.js'
+
 import { PeerRecordUpdater } from './peer-record-updater.js'
 import { DHTPeerRouting } from './dht/dht-peer-routing.js'
 import { PersistentPeerStore } from '@libp2p/peer-store'
@@ -159,9 +159,6 @@ export class Libp2pNode extends EventEmitter<Libp2pEvents> implements Libp2p {
       ...keychainOpts,
       ...init.keychain
     }))
-
-    // Create the Nat Manager
-    this.services.push(new NatManager(this.components, init.nat))
 
     init.transports.forEach((transport) => {
       this.components.getTransportManager().add(this.configureComponent(transport))
